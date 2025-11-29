@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mudit | Python & DevOps Portfolio</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="Style/style.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Portfolio</a>
+
+      <nav class="navbar">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="expertise.html">Expertise</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HOME / HERO -->
+  <main class="page" id="home">
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-title">Hi, Myself</div>
+        <div class="hero-name">
+          <span>Mudit</span><br />
+          <span>Narayan Soni</span>
+        </div>
+
+        <div class="hero-sub">
+          And I'm a <span class="typed-role"></span>
+        </div>
+
+        <p class="hero-text">
+          Python Developer and DevOps/Cloud Engineer in the making — I enjoy 
+          building backend services, automating infrastructure, and designing 
+          smooth deployment workflows using modern cloud and DevOps tools.
+        </p>
+
+        <div class="social-media">
+          <a href="https://github.com/" target="_blank" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/muditsoni/" target="_blank" title="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://leetcode.com/u/Mudit_Narayan_Soni/" target="_blank" title="LeetCode">
+            <i class="fa-solid fa-user"></i>
+          </a>
+        </div>
+
+        <a
+          class="btn-primary"
+          href="contact.html"
+          target="_blank"
+        >
+          Contact
+        </a>
+      </div>
+
+      <div class="hero-right">
+        <div class="img-wrapper">
+          <!-- Put your own image here -->
+          <img src="images\home.jpeg" alt="Mudit Narayan Soni">
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- Typed effect -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    new Typed(".typed-role", {
+      strings: ["DevOps & Cloud Enthusiast", "Python Developer"],
+      typeSpeed: 80,
+      backSpeed: 45,
+      backDelay: 1200,
+      loop: true,
+    });
+  </script>
+</body>
+</html>

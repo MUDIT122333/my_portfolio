@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact · Mudit Narayan Soni</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="Style/style.css" />
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Portfolio</a>
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="expertise.html">Expertise</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-title">Contact</div>
+        <div class="hero-name" style="font-size:2.3rem;">Let’s Talk</div>
+        <p class="hero-text">
+          Have an opportunity, project idea, or just want to discuss Python and
+          DevOps? Drop a message and I’ll get back to you.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="grid">
+        <div class="card form-card">
+          <p class="section-text">
+            This form can be connected to Google Sheets or a backend later. For
+            now, it shows a demo submission message.
+          </p>
+
+          <form id="contact-form" style="margin-top:8px;">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit" class="btn-primary" style="margin-top:12px;">
+              Send Message
+            </button>
+            <p id="form-status" style="margin-top:8px;font-size:0.85rem;color:var(--text-muted);"></p>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>Direct Links</h3>
+          <p class="project-meta">I usually respond fastest on email and LinkedIn.</p>
+          <div style="margin-top:10px;display:flex;flex-direction:column;gap:10px;">
+            <a class="btn-primary" href="mailto:muditnarayansoni@gmail.com">
+              Email
+            </a>
+            <a
+              class="btn-primary"
+              href="https://www.linkedin.com/in/muditsoni/"
+              target="_blank"
+            >
+              LinkedIn
+            </a>
+            <a
+              class="btn-primary"
+              href="https://leetcode.com/u/Mudit_Narayan_Soni/"
+              target="_blank"
+            >
+              LeetCode
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById("contact-form");
+    const statusEl = document.getElementById("form-status");
+    const scriptURL = "YOUR_GOOGLE_SCRIPT_URL_HERE"; // replace when ready
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      statusEl.textContent = "Sending...";
+      statusEl.style.color = "var(--text-muted)";
+
+      // demo mode if URL not set
+      if (!scriptURL || scriptURL === "YOUR_GOOGLE_SCRIPT_URL_HERE") {
+        await new Promise((res) => setTimeout(res, 600));
+        statusEl.textContent =
+          "Demo only: connect a backend/Google Script to actually send.";
+        statusEl.style.color = "#f97373";
+        form.reset();
+        return;
+      }
+
+      const formData = new FormData(form);
+      try {
+        const response = await fetch(scriptURL, { method: "POST", body: formData });
+        if (response.ok) {
+          statusEl.textContent = "Thanks! Your message has been sent.";
+          statusEl.style.color = "#4ade80";
+          form.reset();
+        } else {
+          statusEl.textContent = "Something went wrong. Please try again.";
+          statusEl.style.color = "#f97373";
+        }
+      } catch (err) {
+        statusEl.textContent = "Network error. Please try again.";
+        statusEl.style.color = "#f97373";
+      }
+    });
+  </script>
+</body>
+</html>
